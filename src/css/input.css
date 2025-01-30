@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply scroll-smooth overflow-x-hidden
+    }
+
+    body {
+        @apply text-cinza-950 overflow-x-hidden;
+    }
+
+    .container {
+        @apply sm:px-6 px-4;
+    }
+
+    .container.container-ui-2 {
+        @apply xl:px-16 sm:px-6 px-4;
+    }
+
+    strong {
+        @apply font-bold;
+    }
+}
+
+@layer components {
+    .btn-ui {
+        @apply font-semibold transition-all duration-300 ease-in-out
+        inline-flex gap-2 items-center text-left lg:text-base text-sm
+        lg:px-5 px-4 sm-m:py-3 py-2 rounded-xl bg-roxo-200 text-roxo-900
+        hover:bg-roxo-900 hover:text-roxo-50;
+    }
+    
+    .btn-ui svg {
+        @apply *:fill-roxo-900
+        lg:w-6 w-5 *:transition-all *:duration-300 *:ease-in-out;
+    }
+
+    .btn-ui:hover svg {
+        @apply *:fill-roxo-50;
+    }
+    
+    .btn-ui.icon-left {
+        @apply flex-row-reverse;
+    }
+
+    .btn-ui.btn-ui-amarelo {
+        @apply bg-amarelo-500 hover:bg-roxo-900;
+    }
+
+    .btn-ui.btn-ui-light {
+        @apply bg-branco hover:bg-roxo-900;
+    }
+
+    .section-tagline {
+        @apply inline-flex items-center gap-2 px-3 py-[6px]
+        bg-roxo-200 text-roxo-900 rounded-lg font-semibold lg:text-base text-sm;
+    }
+
+    .section-tagline-2 {
+        @apply bg-amarelo-100
+    }
+
+    .section-tagline::before {
+        @apply content-['']
+        w-2 h-2 rounded-full 
+        bg-roxo-900;
+    }
+
+    .content-text {
+        @apply *:mb-4 last:*:mb-0
+    }
+
+    /* Tabs mapa */
+
+    .tab-map-items {
+        @apply relative;
+    }
+
+    .tab-map-item {
+        @apply absolute inset-0 z-0 opacity-0 transition-all duration-300 scale-90;
+    }
+
+    .tab-map-item.active {
+        @apply relative z-10 opacity-100 scale-100;
+    }
+
+    .tab-map-nav-item {
+        @apply bg-cinza-50 border-2 border-cinza-400 text-cinza-400 
+        lg:rounded-3xl rounded-2xl lg:p-6 p-4 relative transition-all duration-300
+        flex flex-col justify-center text-left lg:gap-2 gap-0 w-full;
+    }
+
+    .tab-map-nav-item.active {
+        @apply bg-roxo-50 text-roxo-900 border-roxo-900;
+    }
+
+    @keyframes spinAndScale {
+        0% {
+            transform: rotate(0deg) scale(1);
+        }
+        50% {
+            transform: rotate(10deg) scale(0.9);
+        }
+        100% {
+            transform: rotate(0deg) scale(1);
+        }
+    }
+    
+    .grafismo-section.active {
+        animation: spinAndScale 0.3s ease-in-out;
+    }
+
+    /* Check list */
+
+    .check-list-1 .item {
+        @apply cursor-pointer
+        appearance-none
+        min-w-6 min-h-6
+        w-6 h-6
+        inline-flex items-center justify-center
+        border-2 border-branco rounded
+        before:opacity-30
+        checked:before:opacity-100
+        before:w-[18px] before:h-[18px]
+        before:rounded-full
+        before:bg-[url('https://ik.imagekit.io/agenciapiu/AstraZeneca%20-%20Campanha%20Bronquiolite/tick-circle-branco-icon.svg')]
+        checked:before:bg-[url('https://ik.imagekit.io/agenciapiu/AstraZeneca%20-%20Campanha%20Bronquiolite/tick-circle-amarelo-icon.svg')]
+        before:bg-cover before:bg-no-repeat before:bg-center
+        checked:border-amarelo-500
+        hover:border-amarelo-500
+        transition-all duration-300 ease-in-out
+    }
+
+    .notice-check-list {
+        @apply opacity-0 invisible transition-all duration-300 ease-in-out scale-90;
+    }
+
+    .notice-check-list.active {
+        @apply opacity-100 visible scale-100;
+    }
+
+    /* Mask */
+
+    .masked-image {
+        @apply absolute inset-0 object-cover w-full h-full;
+        -webkit-mask-image: url(#myMask);
+        mask-image: url(#myMask);
+    }
+
+    /* Notice share */
+
+    .notice-share {
+        @apply fixed z-50 bottom-0 left-0 right-0 md:px-6 px-4 pb-6 pt-28 bg-gradient-to-b to-roxo-200 from-roxo-200/0 flex justify-center opacity-0 invisible transition-all duration-300 ease-in-out;
+    }
+
+    .notice-share.active {
+        @apply opacity-100 visible;
+    }
+
+    /* Nav */
+
+    .nav-site {
+        @apply bg-branco/80 backdrop-blur-md fixed inset-0 z-50 h-screen opacity-0 invisible transition-all duration-300 ease-in-out;
+    }
+
+    .nav-site.active {
+        @apply opacity-100 visible;
+    }
+
+    .nav-site ul li {
+        @apply transition-all duration-300 ease-in-out;
+    }
+
+    .nav-site ul:hover li {
+        @apply opacity-50;
+    }
+
+    .nav-site ul li:hover {
+        @apply opacity-100
+    }
+
+    .nav-site ul li img {
+        @apply transition-all duration-300 ease-in-out scale-100 rotate-0
+    }
+
+    .nav-site ul li:hover img {
+        @apply scale-90 rotate-6
+    }
+}
+
+@layer utilities {
+    
+}
